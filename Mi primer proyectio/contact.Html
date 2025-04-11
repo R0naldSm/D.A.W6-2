@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>CONTACTANOS</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="About.html">Acerca de Mi</a>
+            <a href="contact.Html">Contacto</a>
+        </nav>
+        <main>
+            <br>
+            <form Action="/" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre">
+                <br></br>
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" id="apellido">
+                <br></br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+                <br></br>
+                <label for="mensaje">Mensaje:</label>
+                <textarea name="mensaje" id="mensaje"></textarea>
+                <br></br>
+                <input type="submit" value="Enviar">
+            </form>
+        </main>
+        <main>
+            <form>
+                <label>¿En qué estás interesado?</label><br>
+                <input type="checkbox" name="interes" value="consultas" id="consultas">
+                <label for="consultas">Consultas</label><br>
+                <input type="checkbox" name="interes" value="soporte" id="soporte">
+                <label for="soporte">Soporte técnico</label><br>
+                <input type="checkbox" name="interes" value="colaboracion" id="colaboracion">
+                <label for="colaboracion">Colaboraciones</label><br>
+            </form>
+        </main>
+
+        <main>
+            <form>
+                <p>¿Cómo prefieres que te contactemos?</p>
+                <input type="radio" name="contacto" value="email" id="contacto-email">
+                <label for="contacto-email">Correo electrónico</label><br>
+                <input type="radio" name="contacto" value="telefono" id="contacto-telefono">
+                <label for="contacto-telefono">Teléfono</label><br>
+                <input type="radio" name="contacto" value="whatsapp" id="contacto-whatsapp">
+                <label for="contacto-whatsapp">WhatsApp</label><br>
+            </form>      
+        </main>
+
+        <br></br>
+
+        <main>
+            <label for="motivo">Motivo de contacto:</label>
+            <select name="motivo" id="motivo">
+            <option value="">-- Selecciona una opción --</option>
+            <option value="consulta">Consulta general</option>
+            <option value="soporte">Soporte técnico</option>
+            <option value="colaboracion">Colaboración</option>
+            </select><br>
+        </main>
+        <footer>
+            <p> @todos los derechos reservados 2025</p>
+        </footer>
+    </body>
+</html>
