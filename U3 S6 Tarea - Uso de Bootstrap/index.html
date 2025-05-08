@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario con Estilo y Archivo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #f0f4f8, #dbeafe);
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .formulario {
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      border: 2px solid #3b82f6;
+    }
+
+    .formulario h2 {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: #1e3a8a;
+    }
+
+    .formulario label {
+      font-weight: bold;
+      color: #1e293b;
+    }
+
+    .formulario input,
+    .formulario select,
+    .formulario textarea {
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      padding: 8px;
+      background-color: #f8fafc;
+      transition: border 0.3s ease;
+    }
+
+    .formulario input:focus,
+    .formulario select:focus,
+    .formulario textarea:focus {
+      border: 1px solid #3b82f6;
+      outline: none;
+      background-color: #ffffff;
+    }
+
+    .formulario .grupo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .formulario .completo {
+      grid-column: 1 / -1;
+    }
+
+    .formulario .boton {
+      grid-column: 1 / -1;
+      text-align: center;
+    }
+
+    .formulario button {
+      padding: 10px 20px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .formulario button:hover {
+      background-color: #1d4ed8;
+    }
+
+    #resultado {
+      background-color: #eff6ff;
+      padding: 15px;
+      border: 1px solid #3b82f6;
+      border-radius: 8px;
+      color: #1e3a8a;
+      white-space: pre-line;
+    }
+
+    ul {
+      grid-column: 1 / -1;
+      background-color: #f1f5f9;
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: #475569;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <form class="formulario" onsubmit="mostrarDatos(event)">
+    <h2>Acceso a Elementos HTML</h2>
+
+    <div class="grupo">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+    </div>
+
+    <div class="grupo">
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" placeholder="Ingresa tu apellido">
+    </div>
+
+    <div class="grupo">
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" min="0">
+    </div>
+
+    <div class="grupo">
+      <label for="email">Correo:</label>
+      <input type="email" id="email" placeholder="ejemplo@correo.com">
+    </div>
+
+    <div class="grupo">
+      <label for="fecha">Fecha de nacimiento:</label>
+      <input type="date" id="fecha">
+    </div>
+
+    <div class="grupo">
+      <label for="archivo">Subir Archivo:</label>
+      <input type="file" id="archivo" accept=".jpg,.jpeg,.png,.pdf,.docx">
+    </div>
+
+    <div class="grupo completo">
+      <label for="comentario">Comentario:</label>
+      <textarea id="comentario" rows="3" placeholder="Escribe un comentario..."></textarea>
+    </div>
+
+    <div class="grupo">
+      <label for="nivel">Nivel de Estudio:</label>
+      <select id="nivel">
+        <option value="">-- Selecciona un nivel --</option>
+        <option value="Bachillerato">Bachillerato</option>
+        <option value="Universidad">Universidad</option>
+        <option value="Postgrado">Postgrado</option>
+      </select>
+    </div>
+
+    <div class="grupo">
+      <label for="color">Color Favorito:</label>
+      <select id="color">
+        <option value="">-- Selecciona un color --</option>
+        <option value="Rojo">Rojo</option>
+        <option value="Azul">Azul</option>
+        <option value="Verde">Verde</option>
+      </select>
+    </div>
+
+    <div class="grupo completo">
+      <label>Género:</label>
+      <label><input type="radio" name="genero" value="Masculino"> Masculino</label>
+      <label><input type="radio" name="genero" value="Femenino"> Femenino</label>
+    </div>
+
+    <div class="grupo completo">
+      <label>Intereses:</label>
+      <label><input type="checkbox" value="Deportes" class="interes"> Deportes</label>
+      <label><input type="checkbox" value="Música" class="interes"> Música</label>
+      <label><input type="checkbox" value="Lectura" class="interes"> Lectura</label>
+    </div>
+
+    <div class="boton">
+      <button type="submit">Mostrar Valores</button>
+    </div>
+
+    <div id="resultado" class="completo"></div>
+
+    <ul>
+      <li>Formulario con opción de subir archivos incluida.</li>
+      <li>Estilos modernos aplicados a todos los campos.</li>
+      <li>Diseño adaptable y validaciones básicas.</li>
+    </ul>
+  </form>
+
+  <script>
+    function mostrarDatos(event) {
+      event.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      const apellido = document.getElementById("apellido").value;
+      const edad = document.getElementById("edad").value;
+      const email = document.getElementById("email").value;
+      const fecha = document.getElementById("fecha").value;
+      const comentario = document.getElementById("comentario").value;
+      const nivel = document.getElementById("nivel").value;
+      const color = document.getElementById("color").value;
+      const genero = document.querySelector('input[name="genero"]:checked');
+      const intereses = Array.from(document.querySelectorAll('.interes:checked')).map(cb => cb.value);
+      const archivoInput = document.getElementById("archivo");
+      const archivoNombre = archivoInput.files.length > 0 ? archivoInput.files[0].name : "No se subió archivo";
+
+      const resultado = `
+Nombre: ${nombre} ${apellido}
+Edad: ${edad}
+Correo: ${email}
+Fecha de Nacimiento: ${fecha}
+Archivo Subido: ${archivoNombre}
+Comentario: ${comentario}
+Nivel de Estudio: ${nivel}
+Color Favorito: ${color}
+Género: ${genero ? genero.value : 'No seleccionado'}
+Intereses: ${intereses.length > 0 ? intereses.join(', ') : 'Ninguno seleccionado'}
+      `;
+
+      document.getElementById("resultado").textContent = resultado;
+    }
+  </script>
+</body>
+</html>
